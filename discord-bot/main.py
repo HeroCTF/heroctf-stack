@@ -1,7 +1,7 @@
 import asyncio
 import discord
 from discord.channel import TextChannel
-from discord.ext.commands import Bot
+from discord.ext.commands import Bot, has_any_role, MissingAnyRole
 from time import strftime
 
 Client = Bot(">")
@@ -20,25 +20,44 @@ def print_log(msg):
     print(f"[{strftime('%d/%m/%Y - %H:%M:%S')}] {msg}")
 
 
+async def print_send_log(msg, channel=None):
+    print_log(msg)
+    await channel.send(f"[{strftime('%d/%m/%Y - %H:%M:%S')}] {msg}")
+
+
 @Client.event
 async def on_ready():
     print_log("Bot is ready !")
 
 
 @Client.command(name="clear_all", help="Reset all the non-admin channels.")
-async def clear_non_admin_channels(ctx):
-    print_log("Clear all ...")
+@has_any_role("Hero")
+async def clear_all(ctx):
+    await print_send_log(f"{ctx.author.name} run clear all ...", channel=ctx.channel)
     for channel in Client.get_all_channels():
         if (
             isinstance(channel, TextChannel)
             and channel.category_id in CATEGORIES.values()
             and channel.id not in CHANNELS.values()
         ):
-            print_log(f"Clear all : Cloning {channel.name} ...")
+            await print_send_log(
+                f"Clear all : Cloning {channel.name} ...", channel=ctx.channel
+            )
             await channel.clone(name=channel.name)
-            print_log(f"Clear all : Deleting {channel.name} ...")
+            await print_send_log(
+                f"Clear all : Deleting {channel.name} ...", channel=ctx.channel
+            )
             await channel.delete()
-    print_log("Clear all, done !")
+    await print_send_log("Clear all, done !", channel=ctx.channel)
+
+
+@clear_all.error
+async def clear_all_error(ctx, error):
+    if isinstance(error, MissingAnyRole):
+        await print_send_log(
+            f"Sorry {ctx.author.name}, you do not have permissions to do that!",
+            channel=ctx.channel,
+        )
 
 
 if __name__ == "__main__":

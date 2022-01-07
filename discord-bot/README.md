@@ -11,8 +11,12 @@ $ cd heroctf-stack/discord-bot
 $ echo 'TOKEN=XXXXX' > .env
 
 # Part II
+## With docker-compose
+$ sudo docker-compose up -d
+
 ## With docker
-$ docker-compose up -d
+$ sudo docker build . -t discord-bot
+$ sudo docker run -t --rm discord-bot
 
 ## Directly on host
 $ python3 -m pip install -r requirements.txt
@@ -23,7 +27,7 @@ $ python3 main.py
 
 ### Commands
 
-- `>clear_all` : Deletes the content of non-sensitive channels.
+- `>clear_all` : Deletes the content of non-sensitive channels (required role : `Hero`).
 
 ## Made with
 

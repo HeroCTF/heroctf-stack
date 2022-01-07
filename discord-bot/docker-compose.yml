@@ -1,0 +1,10 @@
+---
+version: "2.2"
+
+services:
+
+  bot:
+    build: .
+    tty: true
+    cpus: 1
+    mem_limit: 512m
