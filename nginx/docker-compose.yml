@@ -18,5 +18,5 @@ services:
 
 networks:
   frontend:
-    name: nextcloud_frontend
+    name: applications_frontend
     external: true

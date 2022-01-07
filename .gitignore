@@ -1,4 +1,5 @@
 .env
 venv/
-mariadb/
+nextcloud/postgres/
 nextcloud/nextcloud/
+nextcloud/redis/

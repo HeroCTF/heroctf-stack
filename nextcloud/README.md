@@ -5,9 +5,10 @@
 ```bash
 $ git clone https://github.com/HeroCTF/heroctf-stack
 $ cd heroctf-stack/nextcloud
-$ echo "MYSQL_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c32)" > .env
+$ echo "POSTGRES_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c32)" > .env
 $ echo 'NEXTCLOUD_ADMIN_USER=admin' >> .env
 $ echo "NEXTCLOUD_ADMIN_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c32)" >> .env
+$ echo 'NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.yourdomain.com' >> .env
 $ sudo docker-compose up -d
 ```
 
@@ -15,4 +16,4 @@ $ sudo docker-compose up -d
 
 - Nextcloud : Hosting service.
 - Redis : Cache service
-- Mariadb : Database server.
+- PostgreSQL : Database server.
