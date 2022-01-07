@@ -13,6 +13,7 @@ services:
       - ./conf.d/:/etc/nginx/conf.d/
     links:
       - nextcloud
+      - collabora
     networks:
       - frontend
 

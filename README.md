@@ -10,4 +10,12 @@ List of self-hosted projects.
 
 ## Installation
 
-Each projects contains a `docker-compose.yml` file.
+Each project contains a `docker-compose.yml` file. You can run each of them using `docker-compose up -d`.
+
+You can also use a simple bash script to do it :
+
+```bash
+$ git clone https://github.com/HeroCTF/heroctf-stack.git
+$ cd heroctf-stack
+$ bash install.sh
+```

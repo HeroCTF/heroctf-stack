@@ -25,12 +25,25 @@ services:
     networks:
       - backend
 
+  # http://admin:admin@code:9980
+  collabora:
+    image: collabora/code:latest
+    restart: always
+    environment:
+      - username=admin
+      - password=${COLLABORA_PASSWORD}
+      - domain=${COLLABORA_DOMAIN}
+      - extra_params=--o:ssl.enable=false
+    networks:
+      - frontend
+
   nextcloud:
     image: nextcloud
     restart: always
     depends_on:
       - db
       - redis
+      - code
     volumes:
       - ./nextcloud:/var/www/html
     environment:
