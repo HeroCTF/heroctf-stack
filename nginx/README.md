@@ -1,14 +1,9 @@
 # Nginx
 
-## Installation
+## Services
 
-```bash
-$ git clone https://github.com/HeroCTF/heroctf-stack
-$ cd heroctf-stack/nginx
-# Warning : Run nextcloud docker-compose before
-$ sudo docker-compose up -d
-```
+- Nginx : Reverse proxy for web applications (ex: nextcloud).
 
-## Applications
+## Warning
 
-- Nginx : Reverse proxy for applications (ex: nextcloud).
+You must start all web services before starting `nginx`.
