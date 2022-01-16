@@ -12,18 +12,18 @@ List of self-hosted projects.
 
 Each project contains a `docker-compose.yml` file. You can run each of them using `docker-compose up -d`.
 
-You can also use a simple bash script to do it :
+Follow the steps :
 
 ```bash
 $ git clone https://github.com/HeroCTF/heroctf-stack.git
 $ cd heroctf-stack
 $ cat <<EOF >nextcloud/.env
-POSTGRES_PASSWORD=02737e4e8c87d7466b623c1f844fdd71
+POSTGRES_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c32)
 NEXTCLOUD_ADMIN_USER=admin
-NEXTCLOUD_ADMIN_PASSWORD=aae9ed2aebd46960a986cfb376bc1eca
-NEXTCLOUD_TRUSTED_DOMAINS=drive.heroctf.fr
-COLLABORA_DOMAIN=collabora.heroctf.fr
-COLLABORA_PASSWORD=16c52c6e8326c071da771e66dc6e9e57
+NEXTCLOUD_ADMIN_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c32)
+NEXTCLOUD_TRUSTED_DOMAINS=nextcloud.yourdomain.com
+COLLABORA_DOMAIN=collabora.yourdomain.com
+COLLABORA_PASSWORD=$(< /dev/urandom tr -dc A-Za-z0-9 | head -c32)
 EOF
 $ # Edit nginx/conf.d/*.conf files
 $ # Add HTTPS certificates to nginx/certs/
