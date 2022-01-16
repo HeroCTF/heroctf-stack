@@ -3,3 +3,5 @@ venv/
 nextcloud/postgres/
 nextcloud/nextcloud/
 nextcloud/redis/
+fullchain.pem
+privkey.pem

@@ -17,8 +17,15 @@ You can also use a simple bash script to do it :
 ```bash
 $ git clone https://github.com/HeroCTF/heroctf-stack.git
 $ cd heroctf-stack
+$ # Edit nginx/conf.d/*.conf files
+$ # Add HTTPS certificates to nginx/certs/
 $ bash install.sh
 ```
+
+> Generate self-signed certificate :
+>
+> `openssl genrsa > privkey.pem`<br>
+> `openssl req -new -x509 -key privkey.pem > fullchain.pem`
 
 ## Todo
 
