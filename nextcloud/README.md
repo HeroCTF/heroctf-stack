@@ -7,6 +7,30 @@
 - Redis : Cache service.
 - PostgreSQL : Database server.
 
+## Plugins
+
+### Customization
+
+- Breeze Dark : Dark theme.
+
+### Intregration
+
+- Twitter integration : Twitter notifications on dashboard.
+- Keeweb : Keepass web integration.
+
+### Web app
+
+- Draw.io : Draw.io editor.
+- Mind map : A mindmap editor.
+- Collabora Online : Online office editor.
+- Deck : Web todo list.
+- Mail : Web mail.
+
+### Alerting / Security
+
+- Quota warning : Alerting on disk quota.
+- Brute-force settings : Protects again bruteforce.
+
 ## Accessing files using Linux
 
 You can access nextcloud files from your file manager (ex: `Nautilus`, `Dolphin`, ...)
